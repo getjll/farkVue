@@ -4,7 +4,7 @@
   "description": "fakeVue",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --no-inline",
+    "dev": "webpack-dev-server",
     "build": ""
   },
   "keywords": [
@@ -18,7 +18,6 @@
     "babel-preset-es2015": "^6.24.0",
     "html-webpack-plugin": "^2.28.0",
     "webpack": "^2.3.0",
-    "webpack-dev-server": "^2.4.2",
-    "webpack-hot-middleware": "^2.17.1"
+    "webpack-dev-server": "^2.4.2"
   }
 }

@@ -1,14 +1,18 @@
-var path = require('path');
+var path = require('path')
+var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: [
+    path.resolve(__dirname, 'src/index.js')
+  ],
   output: {
       path: path.resolve(__dirname, 'build'),
       filename: 'fakeVue.js',
   },
+  devtool: '#cheap-module-eval-source-map',
   module: {
     rules: [
       {
@@ -21,10 +25,10 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
     port: 9090,
-    inline: true,
     hot: true
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({template: "./example/index.html"})
   ]
 };
