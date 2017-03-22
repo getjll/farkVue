@@ -1,1 +1,11 @@
-console.log(2)
+import {observe} from './observer'
+
+let $observe = observe({
+  a: 1,
+  b: 2,
+  c: {
+    a: 1,
+    b: 2
+  }
+})
+console.log($observe)
