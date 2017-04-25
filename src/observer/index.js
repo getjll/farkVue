@@ -1,5 +1,5 @@
 import _ from '../util'
-import arrayAugmentations from './array-augmentations'
+import Dep from "./dep"
 
 export default class Observer {
   constructor (value) {
@@ -18,18 +18,22 @@ export default class Observer {
 
 export function defineReactive (data, key, value) {
   let childOb = observe(value);
-
+  let dep = new Dep()
   Object.defineProperty(data, key , {
     enumerable: true,
     configurable: true,
     get () {
       console.log('获取数据', value);
+      if(Dep.target){
+        dep.addSub(Dep.target);
+      }
       return value;
     },
     set (newValue) {
       console.log('设置数据', value);
       childOb = observe(newValue);
       value = newValue;
+      dep.notify()
     }
   });
 }

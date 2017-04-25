@@ -1,11 +1,13 @@
-import {observe} from './observer'
+import FakeVue from './fakeVue'
 
-let $observe = observe({
-  a: 1,
-  b: 2,
-  c: {
+let testVue = new FakeVue({
+  data: {
     a: 1,
-    b: 2
+    b: 2,
+    c: {
+      a: 1,
+      b: 2
+    }
   }
 })
-window.data = $observe
+window.data = testVue
