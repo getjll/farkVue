@@ -8,4 +8,4 @@ let $observe = observe({
     b: 2
   }
 })
-console.log($observe)
+window.data = $observe
